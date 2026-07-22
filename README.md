@@ -1,160 +1,196 @@
-This README.md is designed to turn the 50 questions provided into a professional-grade practice project. It follows standard documentation practices you'll see in real-world Python development.
-## Python Data Structures & Manipulation Practice
+# Python Data Structures and Algorithms Practice
 
-A collection of 50 practical challenges focused on mastering core Python data structures: Lists, Dictionaries, Sets, and Tuples. This project is designed to prepare you for technical exams by emphasizing Pythonic logic and unit testing.
+[![CI](https://github.com/Tumelo4/assessment3_practice_data_structures/actions/workflows/ci.yml/badge.svg)](https://github.com/Tumelo4/assessment3_practice_data_structures/actions/workflows/ci.yml)
+![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python\&logoColor=white)
+![Tests](https://img.shields.io/badge/Tests-pytest-0A9EDC?logo=pytest\&logoColor=white)
 
-## 🚀 Getting Started
-1. Prerequisites
-   
-    Ensure you have *Python 3.10+* and *pytest* installed:
-    **Terminal / Bash:**
-    ```bash
-    pip install pytest
-    ```
+A practical Python project for strengthening data-structure, algorithm and problem-solving skills through small implementations and automated tests.
 
-2. Project Structure
-    ```text
-    python_exam_prep/
-    ├── README.md             # Challenge descriptions and instructions
-    ├── solution.py           # Create this file to write your code
-    └── tests/
-        └── test_ds_practical.py  # The provided test suite
-    ```
+The repository currently contains solutions for **41 of 50 challenges**. The exercises progress from core list and dictionary operations to more advanced topics such as recursion, caching, dependency resolution, rate limiting, circuit breakers and iterable processing.
 
-## 📝 Challenge List
-### 🧠 Level 1: Sequences & Sets
-1. Unique Filter: Return a sorted list of unique elements.
-2. List Rotation: Rotate a list left by n positions.
-3. Frequency Map: Count character occurrences in a string.
-4. Intersection: Find common elements using list comprehension.
-5. Flattening: Convert a list of lists into a flat 1D list.
-6. Chunking: Split a list into chunks of size n.
-7. Parity Sort: Sort list: even numbers first, then odd.
+## Current Status
 
-### 🧠 Level 2: Dictionaries & Mapping
-8. Key Inversion: Swap dictionary keys and values.
-9. Merge & Sum: Combine two dicts, summing values for duplicate keys.
-10. Top N: Get keys of the top 3 highest values.
-11. Filter Dict: Remove keys where value is <50.
-12. Safe Get: Safely retrieve deeply nested values (e.g., a['b']['c']).
+| Area                   | Status                     |
+| ---------------------- | -------------------------- |
+| Implemented challenges | 41 of 50                   |
+| Test framework         | pytest                     |
+| Coverage reporting     | pytest-cov                 |
+| Static checks          | flake8                     |
+| CI environments        | Python 3.10, 3.11 and 3.12 |
 
-### 🧠 Level 3: Advanced Data Processing
-13. Grouping: Group words by their starting letter.
-14. Multi-level Sort: Sort objects by multiple criteria (e.g., Score then Name).
-15. Price Calculator: Apply conditional tax to specific categories in a list of dicts.
-16. Transpose: Convert matrix rows to columns.
-17. Record Update: Bulk update nested student record statuses.
-18. List Difference: Find items in List A not present in List B.
-19. Anagram Checker: Use frequency maps to compare two strings.
-20. Data Cleaning: Deep clean None values from nested structures.
+## What This Project Demonstrates
 
-## 🧠 Level 4: Real-World Python Challenges (Advanced)
+* Python collections: lists, dictionaries, sets and tuples
+* Recursive traversal of nested data
+* Sorting, grouping, deduplication and reconciliation
+* Sliding-window and frequency-based algorithms
+* Generators and iterable processing
+* LRU caching and deterministic hashing
+* Dependency resolution using topological sorting
+* Token-bucket rate limiting
+* Circuit-breaker state transitions
+* Unit testing, linting and CI automation
 
-21. Stable Unique Preserve Order  
-   Return unique values while preserving original order.
+## Project Structure
 
-22. Windowed Average  
-   Given a list of numbers and window size `k`, return a list of moving averages.
+```text
+assessment3_practice_data_structures/
+├── .github/
+│   └── workflows/
+│       └── ci.yml
+├── pytest.ini
+├── README.md
+├── requirements.txt
+├── solution.py
+└── tests/
+    └── test_ds_practical.py
+```
 
-23. Deep Merge Dictionaries  
-   Recursively merge two dictionaries. If keys conflict and values are dicts, merge them.
+## Getting Started
 
-24. Normalized Frequency Map  
-   Count characters ignoring case and spaces.
+### Prerequisites
 
-25. Cartesian Product  
-   Given two lists, return all possible pairs as tuples.
+* Python 3.10 or newer
+* `pip`
 
-26. Deep Key Search  
-   Search for a key in nested dictionaries and return its value if found.
+### Installation
 
-27. Nested Flatten  
-   Flatten arbitrarily nested lists (e.g., [1, [2, [3, 4]]]).
+```bash
+git clone https://github.com/Tumelo4/assessment3_practice_data_structures.git
+cd assessment3_practice_data_structures
+python -m venv .venv
+```
 
-28. Stable Multi-Sort  
-   Sort records by multiple fields but preserve relative order where equal.
+Activate the virtual environment.
 
-29. Schema Validator  
-   Validate if a dict matches a required schema (keys + types).
+**macOS or Linux**
 
-30. Deduplicate Records  Given list of dicts, remove duplicates by key(e.g., "id").
+```bash
+source .venv/bin/activate
+```
 
+**Windows PowerShell**
 
-## 🧠 Level 5: Expert-Level Python (Real-World Constraints)
+```powershell
+.venv\Scripts\Activate.ps1
+```
 
-31. Streaming Deduplicator  
-    Deduplicate a large iterable using a generator (yield unique items without loading all into memory).
+Install the dependencies:
 
-32. Deep Diff  
-    Compare two nested dicts and return only the keys that changed.
+```bash
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+```
 
-33. Path-Based Getter  
-    Retrieve a deeply nested value using dot-notation path (e.g. "a.b.c").
+## Running the Tests
 
-34. Group By Multiple Keys  
-    Group list of dicts by multiple fields (e.g. cat + status).
+Run the complete test suite:
 
-35. Sliding Window Max  
-    Return max values for each window of size k (efficient approach).
+```bash
+pytest tests/test_ds_practical.py -v
+```
 
-36. Circular List Iterator  
-    Implement a generator that loops infinitely over a list.
+Run a specific test:
 
-37. Deep Freeze  
-    Convert nested dicts/lists into immutable equivalents (frozenset, tuple).
+```bash
+pytest tests/test_ds_practical.py -k "test_unique_sorted"
+```
 
-38. Record Reconciliation  
-    Merge two record lists by ID, preferring latest timestamp.
+Run tests with coverage:
 
-39. Data Masking  
-    Mask sensitive fields (email, id, phone) in nested structures.
+```bash
+pytest tests/test_ds_practical.py --cov=solution --cov-report=term-missing
+```
 
-40. Fault-Tolerant Pipeline  
-    Apply multiple functions to a list and skip failures gracefully.
+Run the critical lint checks used by CI:
 
-## 🧠 Level 6: Senior/Staff Python (Production-Grade Thinking)
+```bash
+flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+```
 
-41. LRU Cache (Pure Python)  
-    Implement a fixed-size LRU cache with O(1) get/set.
+## Implemented Challenges
 
-42. Top-K Frequent (Streaming)  
-    Return top-k frequent items from a stream without storing the entire dataset.
+### Core Collections and Processing
 
-43. JSON Patch (Mini RFC6902)  
-    Apply patch operations (add, replace, remove) to nested dicts via paths.
+* Unique sorted values
+* List rotation
+* Character frequency maps
+* Ordered list intersection
+* Recursive list flattening
+* Dictionary inversion and merge-with-sum
+* Grouping by first letter
+* Multi-field sorting
+* Category-based tax calculation
+* Anagram checking
 
-44. Deterministic Hashing  
-    Hash nested structures deterministically (order-independent for dicts).
+### Nested Data and Algorithms
 
-45. Dependency Resolver  
-    Given a DAG of dependencies, return a valid execution order (topological sort).
+* Stable deduplication
+* Windowed averages
+* Recursive dictionary merging
+* Normalised character frequencies
+* Cartesian products
+* Deep-key search
+* Nested flattening
+* Schema validation
+* Record deduplication
+* Deep dictionary differences
+* Dot-path value lookup
+* Grouping by multiple keys
+* Sliding-window maximums
+* Circular iterators
+* Deep freezing of nested structures
+* Record reconciliation
+* Sensitive-data masking
+* Fault-tolerant processing pipelines
 
-46. Rate Limiter (Token Bucket)  
-    Simulate a token-bucket rate limiter.
+### Systems-Oriented Exercises
 
-47. Circuit Breaker (State Machine)  
-    Implement CLOSED → OPEN → HALF-OPEN transitions.
+* LRU cache
+* Top-k frequency calculation
+* JSON-style patch operations
+* Deterministic hashing
+* Dependency resolution
+* Token-bucket rate limiter
+* Circuit breaker
+* Event debouncing
+* Schema migration
+* Iterable record joining
 
-48. Event Debouncer  
-    Given timestamps, drop events that occur within N ms of the previous accepted event.
+## Remaining Challenges
 
-49. Schema Evolution  
-    Migrate records between schema versions (v1 → v2 with defaults/renames).
+The following exercises are still planned:
 
-50. Memory-Efficient Join  
-    Join two large datasets by key using generators (no full materialization).
+* [ ] Chunk a list into fixed-size groups
+* [ ] Sort even values before odd values
+* [ ] Return the top-N dictionary entries
+* [ ] Filter dictionary entries by value
+* [ ] Safely read deeply nested values
+* [ ] Transpose a matrix
+* [ ] Bulk-update nested records
+* [ ] Calculate the difference between two lists
+* [ ] Recursively remove `None` values
 
+## Continuous Integration
 
+GitHub Actions runs on pushes and pull requests targeting `main`. The workflow:
 
-## 🧪 How to Test Your Solutions
-1. Open solution.py.
-2. Implement a function (e.g., unique_sorted).
-3. Run the following command in your terminal:
+1. Tests the project on Python 3.10, 3.11 and 3.12.
+2. Checks for syntax errors and undefined names with flake8.
+3. Runs the pytest suite with coverage.
+4. Uploads the coverage report from the Python 3.12 job.
 
-    ```bash
-    # Run all tests
-    pytest tests/test_ds_practical.py
+## Roadmap
 
-    # Run a specific test
-    pytest tests/test_ds_practical.py -k "test_unique_sorted"
-    ```
+* Complete the remaining nine challenges
+* Improve edge-case coverage
+* Refactor selected implementations for clearer complexity guarantees
+* Add type hints and docstrings
+* Separate challenge descriptions from implementations
+* Add complexity notes for each solution
+
+## Author
+
+**Tumelo Mosomane**
+
+* GitHub: [Tumelo4](https://github.com/Tumelo4)
